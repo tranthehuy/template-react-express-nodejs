@@ -1,6 +1,13 @@
 import React from 'react';
 import { PageContainer as aPageContainer } from '@ant-design/pro-components';
-import { Typography, Card as aCard, Button as aButton, List as aList } from 'antd';
+import { 
+    Typography,
+    Card as aCard,
+    Button as aButton, 
+    List as aList,
+    Col as aCol, 
+    Row as aRow,
+} from 'antd';
 import { ExperimentOutlined } from '@ant-design/icons';
 
 const { Title, Paragraph, Text: aText } = Typography;
@@ -15,6 +22,8 @@ export const P = Paragraph;
 export const Text = aText;
 export const Card = aCard;
 export const Button = aButton;
+export const Row = aRow;
+export const Col = aCol;
 
 export const Icons = {
     ExperimentOutlined

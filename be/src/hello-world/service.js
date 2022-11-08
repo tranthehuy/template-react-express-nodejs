@@ -4,7 +4,7 @@ export default {
   ls: async function (req, res) {
     const { stdout, stderr } = await exec('ls scripts');
     stdout.on('data', function(chunk) {
-      const lines = chunk.split('\n');
+      const lines = chunk.split('\n').filter(line => !!line);
       res.json({ scripts: lines })
     });
   },
