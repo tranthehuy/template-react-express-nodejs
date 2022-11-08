@@ -11,7 +11,12 @@ const Welcome: React.FC = () => {
         </a> 
       </Card>
       <Card>
+        <H3>Quick scripts</H3>
+
+      </Card>
+      <Card>
         <H3>Machine Status</H3>
+        
       </Card>
     </PageContainer>
   );
