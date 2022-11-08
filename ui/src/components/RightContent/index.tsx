@@ -54,8 +54,8 @@ const GlobalHeaderRight: React.FC = () => {
       >
         <QuestionCircleOutlined />
       </span>
-      <Avatar />
-      <SelectLang className={styles.action} />
+      {/* <Avatar />
+      <SelectLang className={styles.action} /> */}
     </Space>
   );
 };
