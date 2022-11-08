@@ -5,18 +5,18 @@ import service from './service';
 const controller = (() => {
   const router = Router();
 
-  /**
-   * POST /hello-world { data?: any }
-   * @example http POST :3000/hello-world
-   * @example http POST :3000/hello-world data=Express
-   */
-  router.post('/', (req, res) => {
-    res.json({ data: service.sayHello(req.body.data) });
+  router.get('/', async (req, res) => {
+    // res.json({ data: service.sayHello(req.body.data) });
+    if (service[req.query.name]) {
+      service[req.query.name](req, res);
+    } else {
+      res.send('not_found');
+    }
   });
 
   return router;
 })();
 
-controller.prefix = '/hello-world';
+controller.prefix = '/api/scripts';
 
 export default controller;

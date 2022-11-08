@@ -1,4 +1,5 @@
 import { PageContainer, Button, Card, H3, Icons } from '@/components';
+import { Fetch } from '@/components/Fetch';
 import React from 'react';
 
 const Welcome: React.FC = () => {
@@ -12,7 +13,7 @@ const Welcome: React.FC = () => {
       </Card>
       <Card>
         <H3>Quick scripts</H3>
-
+        <Fetch url="/api/scripts?name=ls" render={(data: any) => JSON.stringify(data)}></Fetch>
       </Card>
       <Card>
         <H3>Machine Status</H3>

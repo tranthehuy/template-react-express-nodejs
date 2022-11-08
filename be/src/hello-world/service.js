@@ -1,5 +1,17 @@
+import {exec} from 'child_process';
+
 export default {
-  sayHello(str = 'World') {
-    return `Hello, ${str}!`;
+  ls: async function (req, res) {
+    const { stdout, stderr } = await exec('ls scripts');
+    stdout.on('data', function(chunk) {
+      const lines = chunk.split('\n');
+      res.json({ scripts: lines })
+    });
+  },
+  pwd: async function (req, res) {
+    const { stdout, stderr } = await exec('pwd');
+    stdout.on('data', function(chunk) {
+      res.send(`run script ${req.query.name} \n ${JSON.stringify(chunk)}`);
+    });
   },
 };
