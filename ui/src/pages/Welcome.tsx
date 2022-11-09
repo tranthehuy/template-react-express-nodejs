@@ -25,7 +25,7 @@ const Welcome: React.FC = () => {
                             <ActionButton
                               url={`/api/scripts/run?name=${item}`}
                               onResponse={(res: any) => notify(res?.result)}
-                            >Run</ActionButton>
+                            ></ActionButton>
                           ]}
                         ><Text>{item}</Text></ListItem>
                       )}
