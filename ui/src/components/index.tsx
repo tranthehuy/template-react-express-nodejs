@@ -1,6 +1,7 @@
 import React from 'react';
 import { PageContainer as aPageContainer } from '@ant-design/pro-components';
 import { 
+    notification,
     Typography,
     Card as aCard,
     Button as aButton, 
@@ -10,6 +11,8 @@ import {
 } from 'antd';
 import { ExperimentOutlined, CaretRightOutlined } from '@ant-design/icons';
 const { Title, Paragraph, Text: aText } = Typography;
+
+export const notify = (message: string) => notification.info({ message })
 
 export const H1: React.FC = (props) => (<Title {...props} />)
 export const H2: React.FC = (props) => (<Title {...props} level={2}/>)

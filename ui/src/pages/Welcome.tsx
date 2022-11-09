@@ -1,4 +1,4 @@
-import { PageContainer, Button, Card, H3, Icons, List, ListItem, Text, Row, Col } from '@/components';
+import { PageContainer, Button, Card, H3, Icons, List, ListItem, Text, Row, Col, notify } from '@/components';
 import { Fetch } from '@/components/Fetch';
 import { RefreshSection } from '@/components/RefreshSection';
 import { ActionButton } from '@/components/ActionButton';
@@ -7,14 +7,8 @@ import React from 'react';
 const Welcome: React.FC = () => {
   return (
     <PageContainer className='devtoolsPage'>
-      <Row>
+      <Row gutter={[4,4]}>
         <Col lg={12} md={12} sm={24} xs={24}>
-          <Card>
-            <H3>Shortcuts</H3>
-            <a target="_blank" href="https://ant.design/components/overview/">
-              <Button icon={<Icons.ExperimentOutlined />} >Ant Components</Button>
-            </a>
-          </Card>
           <Card>
             <H3>Quick scripts</H3>
             <RefreshSection>
@@ -29,7 +23,7 @@ const Welcome: React.FC = () => {
                         actions={[
                           <ActionButton 
                             url={`/api/scripts/run?name=${item}`}
-                            onResponse={(res: any) => console.log(res)}
+                            onResponse={(res: any) => notify(JSON.stringify(res))}
                           >Run</ActionButton>
                         ]}
                       ><Text>{item}</Text></ListItem>
@@ -41,9 +35,13 @@ const Welcome: React.FC = () => {
               </Fetch>
             </RefreshSection>
           </Card>
+        </Col>
+        <Col lg={12} md={12} sm={24} xs={24}>
           <Card>
-            <H3>Machine Status</H3>
-
+            <H3>Shortcuts</H3>
+            <a target="_blank" href="https://ant.design/components/overview/">
+              <Button icon={<Icons.ExperimentOutlined />} >Ant Components</Button>
+            </a>
           </Card>
         </Col>
       </Row>
