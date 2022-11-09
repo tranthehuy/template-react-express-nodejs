@@ -13,8 +13,13 @@ export default {
         fd: null,
     });
     readable.on('readable', function() {
-      const chunk = readable.read(10);
-      res.json({ result: chunk.toString() })
+      try {
+        const chunk = readable.read(10);
+        res.json({ result: chunk?.toString() || '<none>'})
+      } catch(err) {
+        console.error(err)
+      }
+      
     });
   },
   ls: async function (req, res) {

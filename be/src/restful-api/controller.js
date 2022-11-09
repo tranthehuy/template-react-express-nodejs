@@ -18,7 +18,7 @@ const controller = (() => {
   });
 
   router.get('/read', async (req, res) => {
-    service.run(req, res);
+    service.read(req, res);
   });
 
   return router;
