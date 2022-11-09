@@ -1,4 +1,1 @@
-RESULT=$(docker ps)
-
-echo "[RUN]: ...."
-echo "$RESULT"
+docker ps
