@@ -7,33 +7,36 @@ import React from 'react';
 const Welcome: React.FC = () => {
   return (
     <PageContainer className='devtoolsPage'>
-      <Row gutter={[4,4]}>
+      <Row gutter={[4, 4]}>
         <Col lg={12} md={12} sm={24} xs={24}>
           <Card>
             <H3>Quick scripts</H3>
-            <RefreshSection>
-              <br />
-              <Fetch
-                url="/api/scripts?name=ls"
-                render={(data: any) =>
-                  <List
-                    dataSource={data.scripts}
-                    renderItem={item => (
-                      <ListItem
-                        actions={[
-                          <ActionButton 
-                            url={`/api/scripts/run?name=${item}`}
-                            onResponse={(res: any) => notify(JSON.stringify(res))}
-                          >Run</ActionButton>
-                        ]}
-                      ><Text>{item}</Text></ListItem>
-                    )}
-                  />
-                }
-              >
-                Loading...
-              </Fetch>
-            </RefreshSection>
+            <div className='text-align-right'>
+              <RefreshSection>
+                <br />
+                <Fetch
+                  url="/api/scripts?name=ls"
+                  render={(data: any) =>
+                    <List
+                      dataSource={data.scripts}
+                      renderItem={item => (
+                        <ListItem
+                          actions={[
+                            <ActionButton
+                              url={`/api/scripts/run?name=${item}`}
+                              onResponse={(res: any) => notify(JSON.stringify(res))}
+                            >Run</ActionButton>
+                          ]}
+                        ><Text>{item}</Text></ListItem>
+                      )}
+                    />
+                  }
+                >
+                  Loading...
+                </Fetch>
+              </RefreshSection>
+            </div>
+
           </Card>
         </Col>
         <Col lg={12} md={12} sm={24} xs={24}>
