@@ -6,17 +6,12 @@ const controller = (() => {
   const router = Router();
 
   router.get('/', async (req, res) => {
-    // res.json({ data: service.sayHello(req.body.data) });
-    if (service[req.query.name]) {
-      service[req.query.name](req, res);
-    } else {
-      res.send('not_found');
-    }
+    res.json({ data: service.sayHello(req.body.data) });
   });
 
   return router;
 })();
 
-controller.prefix = '/api/scripts';
+controller.prefix = '/hello-world';
 
 export default controller;

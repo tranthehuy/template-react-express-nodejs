@@ -8,8 +8,7 @@ import {
     Col as aCol, 
     Row as aRow,
 } from 'antd';
-import { ExperimentOutlined } from '@ant-design/icons';
-
+import { ExperimentOutlined, CaretRightOutlined } from '@ant-design/icons';
 const { Title, Paragraph, Text: aText } = Typography;
 
 export const H1: React.FC = (props) => (<Title {...props} />)
@@ -26,7 +25,8 @@ export const Row = aRow;
 export const Col = aCol;
 
 export const Icons = {
-    ExperimentOutlined
+    ExperimentOutlined,
+    Play: CaretRightOutlined
 }
 
 export const PageContainer = aPageContainer;

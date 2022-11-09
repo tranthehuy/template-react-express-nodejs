@@ -2,8 +2,8 @@ import { Router } from 'express';
 import enableWs from '@small-tech/express-ws';
 
 import { INDEX_NAME } from '~/env';
+import restfulApi from '~/restful-api';
 import helloWorld from '~/hello-world';
-// import crudOperations from '~/crud-operations';
 // import authentication from '~/authentication';
 // import fileUploads from '~/file-uploads';
 // import realtimeData from '~/realtime-data';
@@ -15,10 +15,7 @@ router.get('/', (req, res) => {
   res.send(`app-root, ${INDEX_NAME} mode`);
 });
 
-router.get('/api', (req, res) => {
-  res.send(`app-root, ${INDEX_NAME} mode`);
-});
-
+router.use(restfulApi.prefix, restfulApi);
 router.use(helloWorld.prefix, helloWorld);
 // router.use(crudOperations.prefix, crudOperations);
 // router.use(authentication.prefix, authentication);

@@ -1,13 +1,14 @@
 import { PageContainer, Button, Card, H3, Icons, List, ListItem, Text, Row, Col } from '@/components';
 import { Fetch } from '@/components/Fetch';
 import { RefreshSection } from '@/components/RefreshSection';
+import { ActionButton } from '@/components/ActionButton';
 import React from 'react';
 
 const Welcome: React.FC = () => {
   return (
     <PageContainer className='devtoolsPage'>
       <Row>
-        <Col span={12}>
+        <Col lg={12} md={12} sm={24} xs={24}>
           <Card>
             <H3>Shortcuts</H3>
             <a target="_blank" href="https://ant.design/components/overview/">
@@ -25,7 +26,12 @@ const Welcome: React.FC = () => {
                     dataSource={data.scripts}
                     renderItem={item => (
                       <ListItem
-                        actions={[<a key="list-loadmore-edit">Run</a>]}
+                        actions={[
+                          <ActionButton 
+                            url={`/api/scripts/run?name=${item}`}
+                            onResponse={(res: any) => console.log(res)}
+                          >Run</ActionButton>
+                        ]}
                       ><Text>{item}</Text></ListItem>
                     )}
                   />
