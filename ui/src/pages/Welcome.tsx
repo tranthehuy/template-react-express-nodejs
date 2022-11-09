@@ -20,14 +20,13 @@ const Welcome: React.FC = () => {
                     <List
                       dataSource={data.scripts}
                       renderItem={item => (
-                        <ListItem
-                          actions={[
-                            <ActionButton
-                              url={`/api/scripts/run?name=${item}`}
-                              onResponse={(res: any) => notify(res?.result)}
-                            ></ActionButton>
-                          ]}
-                        ><Text>{item}</Text></ListItem>
+                        <ListItem>
+                          <ActionButton
+                            type="link"
+                            url={`/api/scripts/run?name=${item}`}
+                            onResponse={(res: any) => notify(res?.result)}
+                          >{item}</ActionButton>
+                        </ListItem>
                       )}
                     />
                   }
