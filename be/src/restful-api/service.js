@@ -23,10 +23,10 @@ export default {
     const command = `sh ./scripts/${req.query.name}`;
     const { stdout, stderr } = spawn('sh', [`./scripts/${req.query.name}`]);
     stdout.on('data', function(chunk) { 
-      res.json({ command, result: chunk })
+      res.json({ command, result: chunk.toString() })
     })
     stderr.on('data', function(chunk) { 
-      res.json({ command, result: chunk })
+      res.json({ command, result: chunk.toString() })
     })
   }
 };
