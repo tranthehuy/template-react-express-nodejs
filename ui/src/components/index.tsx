@@ -9,7 +9,7 @@ import {
     Col as aCol, 
     Row as aRow,
 } from 'antd';
-import { ExperimentOutlined, CaretRightOutlined, ReloadOutlined } from '@ant-design/icons';
+import { ExperimentOutlined, CaretRightOutlined, ReloadOutlined, EyeOutlined } from '@ant-design/icons';
 const { Title, Paragraph, Text: aText } = Typography;
 
 export const notify = (message: string) => notification.info({ message })
@@ -31,6 +31,7 @@ export const Icons = {
     ExperimentOutlined,
     Play: CaretRightOutlined,
     Refresh: ReloadOutlined,
+    View: EyeOutlined,
 }
 
 export const PageContainer = aPageContainer;

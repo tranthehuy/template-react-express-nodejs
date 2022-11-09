@@ -15,7 +15,7 @@ export const ActionButton: React.FC<any> = (props: any) => {
         setLoading(false);
     };
 
-    return <Button {...props} icon={<Icons.Play />} loading={loading} onClick={onClick}>
+    return <Button icon={<Icons.Play />} loading={loading} onClick={onClick} {...props} >
         {props.children}
     </Button>
 }

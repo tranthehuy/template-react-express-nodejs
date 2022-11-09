@@ -17,6 +17,10 @@ const controller = (() => {
     service.run(req, res);
   });
 
+  router.get('/read', async (req, res) => {
+    service.run(req, res);
+  });
+
   return router;
 })();
 

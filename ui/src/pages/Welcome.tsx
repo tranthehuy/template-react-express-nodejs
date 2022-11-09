@@ -1,4 +1,4 @@
-import { PageContainer, Button, Card, H3, Icons, List, ListItem, Text, Row, Col, notify } from '@/components';
+import { PageContainer, Button, Card, H3, Icons, List, ListItem, Row, Col, notify } from '@/components';
 import { Fetch } from '@/components/Fetch';
 import { RefreshSection } from '@/components/RefreshSection';
 import { ActionButton } from '@/components/ActionButton';
@@ -20,7 +20,16 @@ const Welcome: React.FC = () => {
                     <List
                       dataSource={data.scripts}
                       renderItem={item => (
-                        <ListItem>
+                        <ListItem
+                          actions={[
+                            <ActionButton
+                              icon={<Icons.View />}
+                              type="link"
+                              url={`/api/scripts/read?name=${item}`}
+                              onResponse={(res: any) => notify(res?.result)}
+                            ></ActionButton>
+                          ]}
+                        >
                           <ActionButton
                             type="link"
                             url={`/api/scripts/run?name=${item}`}

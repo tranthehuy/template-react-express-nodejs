@@ -1,4 +1,5 @@
 import { exec, spawn } from 'child_process';
+import fs from 'fs';
 
 export const runScript = async(command, cb) => {
   const { stdout, stderr } = await exec(command);
@@ -6,6 +7,16 @@ export const runScript = async(command, cb) => {
 }
 
 export default {
+  read: async function (req, res) {
+    const readable = fs.createReadStream(`./scripts/${req.query.name}`, {
+        encoding: 'utf8',
+        fd: null,
+    });
+    readable.on('readable', function() {
+      const chunk = readable.read(10);
+      res.json({ result: chunk.toString() })
+    });
+  },
   ls: async function (req, res) {
     const { stdout, stderr } = await exec('ls scripts');
     stdout.on('data', function(chunk) {
