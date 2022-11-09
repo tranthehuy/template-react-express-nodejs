@@ -21,9 +21,12 @@ export default {
   },
   run: async function(req, res) {
     const command = `sh ./scripts/${req.query.name}`;
-    const { stdout, stderr } = exec(command);
-    res.json({ command })
-
-    stdout.on('data', function(chunk) { console.log(chunk) })
+    const { stdout, stderr } = spawn('sh', [`./scripts/${req.query.name}`]);
+    stdout.on('data', function(chunk) { 
+      res.json({ command, result: chunk })
+    })
+    stderr.on('data', function(chunk) { 
+      res.json({ command, result: chunk })
+    })
   }
 };
