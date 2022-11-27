@@ -54,6 +54,10 @@ const Welcome: React.FC = () => {
             <a target="_blank" href="https://ant.design/components/overview/">
               <Button icon={<Icons.ExperimentOutlined />} >Ant Components</Button>
             </a>
+            <br />
+            <a target="_blank" href="https://console.aws.amazon.com/console/home">
+              <Button icon={<Icons.AmazonOutlined />} >AWS Console</Button>
+            </a>
           </Card>
         </Col>
       </Row>
