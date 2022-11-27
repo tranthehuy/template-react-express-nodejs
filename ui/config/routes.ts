@@ -5,8 +5,8 @@
 export default [
   {
     path: '/',
-    name: 'welcome',
-    icon: 'smile',
+    name: 'Tools',
+    icon: 'experiment',
     component: './Welcome',
   },
   // {
