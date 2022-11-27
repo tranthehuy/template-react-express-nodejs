@@ -31,6 +31,7 @@ const Welcome: React.FC = () => {
                           ]}
                         >
                           <ActionButton
+                            needConfirm
                             type="link"
                             url={`/api/scripts/run?name=${item}`}
                             onResponse={(res: any) => notify(res?.result)}
