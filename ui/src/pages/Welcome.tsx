@@ -7,7 +7,7 @@ import React from 'react';
 const Welcome: React.FC = () => {
   return (
     <PageContainer className='devtoolsPage'>
-      <Row gutter={[4, 4]}>
+      <Row gutter={[16, 16]}>
         <Col lg={12} md={12} sm={24} xs={24}>
           <Card>
             <H3>Quick scripts</H3>
