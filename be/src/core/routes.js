@@ -3,7 +3,6 @@ import enableWs from '@small-tech/express-ws';
 
 import { INDEX_NAME } from '~/env';
 import restfulApi from '~/restful-api';
-import helloWorld from '~/hello-world';
 // import authentication from '~/authentication';
 // import fileUploads from '~/file-uploads';
 // import realtimeData from '~/realtime-data';
@@ -16,7 +15,6 @@ router.get('/', (req, res) => {
 });
 
 router.use(restfulApi.prefix, restfulApi);
-router.use(helloWorld.prefix, helloWorld);
 // router.use(crudOperations.prefix, crudOperations);
 // router.use(authentication.prefix, authentication);
 // router.use(fileUploads.prefix, fileUploads);
